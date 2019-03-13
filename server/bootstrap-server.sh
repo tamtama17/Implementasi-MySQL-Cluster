@@ -1,5 +1,7 @@
+cd ~
+wget https://dev.mysql.com/get/Download/MySQL-Cluster-7.6/mysql-cluster_7.6.9-1ubuntu18.04_amd64.deb-bundle.tar
 mkdir install
-tar -xvf /vagrant/server/mysql-cluster_7.6.9-1ubuntu18.04_amd64.deb-bundle.tar -C install/
+tar -xvf mysql-cluster_7.6.9-1ubuntu18.04_amd64.deb-bundle.tar -C install/
 
 sudo apt update
 sudo apt install libaio1 libmecab2
