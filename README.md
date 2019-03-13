@@ -33,7 +33,12 @@ sudo cp /vagrant/manager/ndb_mgmd.service /etc/systemd/system/ndb_mgmd.service
 sudo systemctl daemon-reload
 sudo systemctl enable ndb_mgmd
 sudo systemctl start ndb_mgmd
+<<<<<<< Updated upstream
 ```
+=======
+```   
+![Service Node running](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/manager_running.jpg "Service Node running")   
+>>>>>>> Stashed changes
 
 ### 4. Installing Data Node
 Untuk installing Data Node sebenarnya sudah dijalankan ketika kita melakukan `vagrant up` karena masuk dalam provisioning. Namun, saya akan menjelaskan tahapan kerjanya.
@@ -107,6 +112,11 @@ sudo bash /vagrant/server/bootstrap-server.sh
 ```sh
 ndb_mgm
 ```
+<<<<<<< Updated upstream
    Lalu ketik perintah `show`. Jika muncul gambar seperti dibawah maka Service Node sudah siap pakai.   
    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Service Node running")   
+=======
+Lalu ketik perintah `show`. Jika muncul gambar seperti dibawah maka Service Node sudah siap pakai.   
+![Service Node running](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/manager_running.jpg "Service Node running")   
+>>>>>>> Stashed changes
 2. Create database
