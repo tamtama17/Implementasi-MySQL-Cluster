@@ -20,12 +20,12 @@ sudo dpkg -i /vagrant/manager/mysql-cluster-community-management-server_7.6.9-1u
 sudo mkdir /var/lib/mysql-cluster
 sudo cp /vagrant/manager/config.ini /var/lib/mysql-cluster/
 ```
-3. Menjalankan cluster manager
+3. Menjalankan cluster manager   
 Untuk menjalankan cluster manager tinggal menjalakan perintah :
 ```sh
 sudo ndb_mgmd -f /var/lib/mysql-cluster/config.ini
 ```
-4. Otomasi cluster manager
+4. Otomasi cluster manager   
 Agar cluster manager siap diguanakan setelah booting, kita harus menyeting beberapa hal. Pertama kita harus memastikan bahwa proses sudah mati, selanjutnya baru kita bisa menyeting otomasi dengan cara :
 ```sh
 sudo pkill -f ndb_mgmd
@@ -53,12 +53,12 @@ Untuk membuat configurasi Data Node kita harus membuat file `my.cnf` yang berisi
 sudo cp /vagrant/datanodes/my.cnf /etc/
 sudo mkdir -p /usr/local/mysql/data
 ```
-4. Menjalankan data node
+4. Menjalankan data node   
 Untuk menjalankan data node tinggal menjalakan perintah :
 ```sh
 sudo ndbd
 ```
-5. Otomasi data node
+5. Otomasi data node   
 Sama seperti otomasi pada cluster manager, kita bisa menyetingnya dengan menjalakan perintah seperti ini :
 ```sh
 sudo pkill -f ndbd
@@ -108,12 +108,6 @@ sudo bash /vagrant/server/bootstrap-server.sh
 1. Untuk mengetahui Service Node sudah bisa dipakai kita bisa menjalankan perintah :
 ```sh
 ndb_mgm
-```
-<<<<<<< Updated upstream
-   Lalu ketik perintah `show`. Jika muncul gambar seperti dibawah maka Service Node sudah siap pakai.   
-   ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Service Node running")   
-=======
-Lalu ketik perintah `show`. Jika muncul gambar seperti dibawah maka Service Node sudah siap pakai.   
-![Service Node running](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/manager_running.jpg "Service Node running")   
->>>>>>> Stashed changes
+```   
+![Service Node running](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/service_running.jpg "Service Node running")   
 2. Create database
