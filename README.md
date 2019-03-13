@@ -112,4 +112,4 @@ ndb_mgm
 ![Service Node running](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/service_running.jpg "Service Node running")   
 2. Updating Service Node
 Jika kita mengubah salah satu Service Node, maka yang lain juga ikut terupdate. Untuk contoh, create database pada service1, maka database akan terbuat juga pada service2.   
-![Cek Update](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/create_db.jpg.jpg "Cek Update")   
+![Cek Update](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/create_db.jpg "Cek Update")   
