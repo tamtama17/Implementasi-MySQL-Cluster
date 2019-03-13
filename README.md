@@ -34,7 +34,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable ndb_mgmd
 sudo systemctl start ndb_mgmd
 ```   
-![Service Node running](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/manager_running.jpg "Service Node running")   
+![Cluster Manager running](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/manager_running.jpg "Cluster Manager running")   
 
 ### 4. Installing Data Node
 Untuk installing Data Node sebenarnya sudah dijalankan ketika kita melakukan `vagrant up` karena masuk dalam provisioning. Namun, saya akan menjelaskan tahapan kerjanya.
@@ -66,7 +66,8 @@ sudo cp /vagrant/datanodes/ndbd.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable ndbd
 sudo systemctl start ndbd
-```
+```   
+![Data Node running](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/gambar/datanode_running.jpg "Data Node running")   
 ### 5. Installing Service Node
 1. Install dependensi dari `MySQL Server binary` yaitu `libaio1` dan `libmecab2` dengan cara :
 ```sh
