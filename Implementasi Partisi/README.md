@@ -102,3 +102,23 @@ PARTITIONS 10;
 ![Hasil Hash Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/hasil_hash.jpg "Hasil Hash Partitions")   
 
 #### 2.4 `KEY` Partitioning
+Ini sangat mirip dengan partisi `HASH`, tetapi fungsi hashing disediakan oleh MySQL. Partisi `KEY` dapat menentukan nol atau banyak kolom, yang dapat berisi nilai-nilai non-integer. Hasil integer akan dikembalikan terlepas dari tipe data kolom. Contoh berikut akan menjelaskan hal ini :
+```sql
+CREATE TABLE serverlogs5 (
+    serverid INT, 
+    logdata BLOB,
+    created DATETIME,
+    label VARCHAR(10)
+)
+PARTITION BY KEY(serverid, label, created)
+PARTITIONS 10;
+```
+![Explain Key Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_key.jpg "Explain Key Partitions")   
+![Query Select Key Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/q_select_key.jpg "Query Select Key Partitions")   
+![Hasil Key Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/hasil_key.jpg "Hasil Key Partitions")   
+
+### 3. Testing "A Typical Use Case: Time Series Data"
+
+#### 3.1 Explain Partition
+#### 3.2 Select Queries Benchmark
+#### 3.3 The Big Delete Benchmark
