@@ -1,5 +1,15 @@
 # Implementasi Partisi
-
+### Daftar isi
+1. [Pengecekan Plugin Partition](#1-pengecekan-plugin-partition)
+2. [Membuat Partition](#2-membuat-partition)   
+2.1 [`RANGE` Partitioning](#21-range-partitioning)   
+2.2 [`LIST` Partitioning](#22-list-partitioning)   
+2.3 [`HASH` Partitioning](#23-hash-partitioning)   
+2.4 [`KEY` Partitioning](#24-key-partitioning)
+3. [Testing "A Typical Use Case: Time Series Data"](#3-testing-a-typical-use-case-time-series-data)   
+3.1 [Explain Partition](#31-explain-partition)   
+3.2 [Select Queries Benchmark](#32-select-queries-benchmark)   
+3.3 [The Big Delete Benchmark](#33-the-big-delete-benchmark)
 ### 1. Pengecekan Plugin Partition
 Untuk mengecek apakah plugin partition telah aktif/tidak, kita menggunakan syntax berikut :
 ```sql
@@ -12,7 +22,7 @@ WHERE plugin_type = 'STORAGE ENGINE';
 Lalu akan muncul status plugin setiap engine seperti ini :   
 ![Hasil cek plugin](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/cek_plugin.jpg "Hasil cek plugin")
 
-### 2. Create Partition
+### 2. Membuat Partition
 Pada dasarnya ada 4 jenis partition yang tersedia yaitu : `RANGE`, `LIST`, `HASH`, dan `KEY`.   
 #### 2.1. `RANGE` Partitioning   
 Untuk membuat `RANGE` partitioning bisa menggunakan syntax seperti contoh berikut :
