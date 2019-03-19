@@ -9,8 +9,8 @@ plugin_status as status
 FROM information_schema.plugins
 WHERE plugin_type = 'STORAGE ENGINE';
 ```
-Lalu akan muncul status plugin setiap engine seperti ini :
-gambar hasil querynya
+Lalu akan muncul status plugin setiap engine seperti ini :   
+![Hasil cek plugin](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/cek_plugin.jpg "Hasil cek plugin")
 
 ### 2. Create Partition
 Pada dasarnya ada 4 jenis partition yang tersedia yaitu : `RANGE`, `LIST`, `HASH`, dan `KEY`.   
@@ -29,7 +29,7 @@ PARTITION BY RANGE( YEAR(created) )(
     PARTITION from_2015 VALUES LESS THAN (2016),
     PARTITION from_2016_and_up VALUES LESS THAN MAXVALUE);
 ```
-gambar sqlnya
+![Query userlogs](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/userlogs_range.jpg "Query userlogs")
 
 Penjelasan :   
 Tabel userlogs akan di partisi dari nilai kolom `created` dimana ada 4 buah partisi yaitu data yang terbuat pada tahun 2013 ke bawah, data yang terbuat pada tahun 2014, data yang terbuat pada tahun 2015, dan data yang terbuat pada tahun 2016 ke atas.
@@ -59,7 +59,7 @@ Untuk melihat partisi apa saja yang ada pada suatu tabel bisa menggunakan `EXPLA
 ```sql
 EXPLAIN PARTITIONS SELECT * FROM rc1;
 ```
-gambar explain_range   
+![Explain Range Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_range.jpg "Explain Range Partitions")   
 
 Tabel rc1 akan di partisi menjadi 2 bagian yaitu p0 dimana memiliki syarat nilai a kurang dari 5 atau nilai b kurang dari 12, dan p3 dimana memiliki syarat nilai a kurang dari nilai tertinggi kolom a atau nilai b kurang dari nilai tertinggi kolom b. Untuk membuktikannya kita bisa menulis syntax :
 ```sql
@@ -68,7 +68,7 @@ UNION ALL
 SELECT *,'p3' FROM rc1 PARTITION (p3)
 ORDER BY a,b ASC;
 ```
-gambar hasil range_columns
+![Hasil Range Columns](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/range_columns.jpg "Hasil Range Columns")  
 
 #### 2.2 `LIST` Partitioning
 `LIST` partition hampir sama dengan `RANGE` namun pada list di partisi sesuai nilai yang di deklarasi. Sama seperti `RANGE` juga `LIST` bisa menggunakan `LIST COLUMNS`. Sebagai contoh seperti berikut :
