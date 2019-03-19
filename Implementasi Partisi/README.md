@@ -84,3 +84,7 @@ PARTITION BY LIST COLUMNS(a,b) (
     PARTITION p3 VALUES IN( (1,3), (2,2), (2,3), (3,2), (3,3) )
 );
 ```
+![Explain List Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_list.jpg "Explain List Partitions")   
+![Hasil List Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/list_columns.jpg "Hasil List Partitions")   
+
+#### 2.3 `HASH` Partitioning
