@@ -127,4 +127,17 @@ PARTITIONS 10;
 #### 3.2 Select Queries Benchmark
 Hasil perbandingan query select dari tiap tabel. Lihat waktu eksekusinya.   
 ![Select Benchmarking](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/select_benchmark.jpg "Select Benchmarking")   
+Query select pada tabel yang tidak melakukan partitioning lebih cepat dari pada tabel yang melakukan partitioning.
 #### 3.3 The Big Delete Benchmark
+Sebelum melakukan delete data yang banyak, sebaiknya kita memberi index pada kolom yang akan menjadi kondisi query delete dengan syntax seperti ini :
+```sql
+ALTER TABLE measures
+ADD INDEX index1 (measure_timestamp ASC);
+```
+```sql
+ALTER TABLE partitioned_measures
+ADD INDEX index1 (measure_timestamp ASC);
+```
+Hasil perbandingan query delete dari tiap tabel. Lihat waktu eksekusinya.   
+![Delete Benchmarking](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/delete_benchmark.jpg "Delete Benchmarking")   
+Untuk menghapus data lebih efektif jika menggunakan partitioning.
