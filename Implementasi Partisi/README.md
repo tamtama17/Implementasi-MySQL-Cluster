@@ -10,7 +10,8 @@
 3.1 [Explain Partition](#31-explain-partition)   
 3.2 [Select Queries Benchmark](#32-select-queries-benchmark)   
 3.3 [The Big Delete Benchmark](#33-the-big-delete-benchmark)
-### 1. Pengecekan Plugin Partition
+4. [Referensi](#4-referensi)
+## 1. Pengecekan Plugin Partition
 Untuk mengecek apakah plugin partition telah aktif/tidak, kita menggunakan syntax berikut :
 ```sql
 SELECT plugin_name as name,
@@ -22,9 +23,9 @@ WHERE plugin_type = 'STORAGE ENGINE';
 Lalu akan muncul status plugin setiap engine seperti ini :   
 ![Hasil cek plugin](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/cek_plugin.jpg "Hasil cek plugin")
 
-### 2. Membuat Partition
+## 2. Membuat Partition
 Pada dasarnya ada 4 jenis partition yang tersedia yaitu : `RANGE`, `LIST`, `HASH`, dan `KEY`.   
-#### 2.1. `RANGE` Partitioning   
+### 2.1. `RANGE` Partitioning   
 Untuk membuat `RANGE` partitioning bisa menggunakan syntax seperti contoh berikut :
 ```sql
 CREATE TABLE userslogs (
@@ -80,7 +81,7 @@ ORDER BY a,b ASC;
 ```
 ![Hasil Range Columns](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/range_columns.jpg "Hasil Range Columns")  
 
-#### 2.2 `LIST` Partitioning
+### 2.2 `LIST` Partitioning
 `LIST` partition hampir sama dengan `RANGE` namun pada list di partisi sesuai nilai yang di deklarasi. Sama seperti `RANGE` juga `LIST` bisa menggunakan `LIST COLUMNS`. Sebagai contoh seperti berikut :
 ```sql
 CREATE TABLE lc (
@@ -114,7 +115,7 @@ INSERT INTO lc(a,b) VALUES(3,3);
 ![Explain List Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_list.jpg "Explain List Partitions")   
 ![Hasil List Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/list_columns.jpg "Hasil List Partitions")   
 
-#### 2.3 `HASH` Partitioning
+### 2.3 `HASH` Partitioning
 Pada `HASH` partitioning, partisi akan dipilih berdasarkan nilai yang dikembalikan. Nilai yang dikembalikan harus berupa integer non-negatif. `HASH` digunakan terutama untuk mendistribusikan data secara merata di antara jumlah partisi. Contoh :
 ```sql
 CREATE TABLE serverlogs (
@@ -149,7 +150,7 @@ INSERT INTO serverlogs(server_id) VALUES(20);
 ![Explain Hash Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_hash.jpg "Explain Hash Partitions")   
 ![Hasil Hash Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/hasil_hash.jpg "Hasil Hash Partitions")   
 
-#### 2.4 `KEY` Partitioning
+### 2.4 `KEY` Partitioning
 Ini sangat mirip dengan partisi `HASH`, tetapi fungsi hashing disediakan oleh MySQL. Partisi `KEY` dapat menentukan nol atau banyak kolom, yang dapat berisi nilai-nilai non-integer. Hasil integer akan dikembalikan terlepas dari tipe data kolom. Contoh berikut akan menjelaskan hal ini :
 ```sql
 CREATE TABLE serverlogs2 (
@@ -195,18 +196,18 @@ insert into serverlogs2 (serverid, created, label) values (29, '2018-11-09', 'Me
 ![Query Select Key Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/q_select_key.jpg "Query Select Key Partitions")   
 ![Hasil Key Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/hasil_key.jpg "Hasil Key Partitions")   
 
-### 3. Testing "A Typical Use Case: Time Series Data"
+## 3. Testing "A Typical Use Case: Time Series Data"
 Untuk dataset bisa didapatkan [disini](https://drive.google.com/file/d/0B2Ksz9hP3LtXRUppZHdhT1pBaWM/view "Sample data link").
-#### 3.1 Explain Partition
+### 3.1 Explain Partition
 1. Tabel Measures   
 ![Explain Tabel Measures](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_measures.jpg "Explain Tabel Measures")   
 2. Tabel Partitioned Measures   
 ![Explain Tabel Partitioned Measures](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_partitioned_measures.jpg "Explain Tabel Partitioned Measures")   
-#### 3.2 Select Queries Benchmark
+### 3.2 Select Queries Benchmark
 Hasil perbandingan query select dari tiap tabel. Lihat waktu eksekusinya.   
 ![Select Benchmarking](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/select_benchmark.jpg "Select Benchmarking")   
 Query select pada tabel yang tidak melakukan partitioning lebih cepat dari pada tabel yang melakukan partitioning.
-#### 3.3 The Big Delete Benchmark
+### 3.3 The Big Delete Benchmark
 Sebelum melakukan delete data yang banyak, sebaiknya kita memberi index pada kolom yang akan menjadi kondisi query delete dengan syntax seperti ini :
 ```sql
 ALTER TABLE measures
@@ -219,3 +220,7 @@ ADD INDEX index1 (measure_timestamp ASC);
 Hasil perbandingan query delete dari tiap tabel. Lihat waktu eksekusinya.   
 ![Delete Benchmarking](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/delete_benchmark.jpg "Delete Benchmarking")   
 Untuk menghapus data lebih efektif jika menggunakan partitioning.
+
+## 4. Referensi
+- https://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions
+- https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
