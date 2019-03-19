@@ -88,3 +88,17 @@ PARTITION BY LIST COLUMNS(a,b) (
 ![Hasil List Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/list_columns.jpg "Hasil List Partitions")   
 
 #### 2.3 `HASH` Partitioning
+Pada `HASH` partitioning, partisi akan dipilih berdasarkan nilai yang dikembalikan. Nilai yang dikembalikan harus berupa integer non-negatif. `HASH` digunakan terutama untuk mendistribusikan data secara merata di antara jumlah partisi. Contoh :
+```sql
+CREATE TABLE serverlogs (
+    server_id INT, 
+    logdata BLOB,
+    created DATETIME
+)
+PARTITION BY HASH (server_id)
+PARTITIONS 10;
+```
+![Explain Hash Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_hash.jpg "Explain Hash Partitions")   
+![Hasil Hash Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/hasil_hash.jpg "Hasil Hash Partitions")   
+
+#### 2.4 `KEY` Partitioning
