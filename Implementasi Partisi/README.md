@@ -120,5 +120,11 @@ PARTITIONS 10;
 ### 3. Testing "A Typical Use Case: Time Series Data"
 
 #### 3.1 Explain Partition
+1. Tabel Measures   
+![Explain Tabel Measures](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_measures.jpg "Explain Tabel Measures")   
+2. Tabel Partitioned Measures   
+![Explain Tabel Partitioned Measures](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_partitioned_measures.jpg "Explain Tabel Partitioned Measures")   
 #### 3.2 Select Queries Benchmark
+Hasil perbandingan query select dari tiap tabel. Lihat waktu eksekusinya.   
+![Select Benchmarking](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/select_benchmark.jpg "Select Benchmarking")   
 #### 3.3 The Big Delete Benchmark
