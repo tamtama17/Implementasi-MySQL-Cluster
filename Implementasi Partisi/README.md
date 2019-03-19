@@ -83,6 +83,23 @@ PARTITION BY LIST COLUMNS(a,b) (
     PARTITION p2 VALUES IN( (1,0), (2,0), (2,1), (3,0), (3,1) ),
     PARTITION p3 VALUES IN( (1,3), (2,2), (2,3), (3,2), (3,3) )
 );
+
+INSERT INTO lc(a,b) VALUES(0,0);
+INSERT INTO lc(a,b) VALUES(0,1);
+INSERT INTO lc(a,b) VALUES(0,2);
+INSERT INTO lc(a,b) VALUES(0,3);
+INSERT INTO lc(a,b) VALUES(1,0);
+INSERT INTO lc(a,b) VALUES(1,1);
+INSERT INTO lc(a,b) VALUES(1,2);
+INSERT INTO lc(a,b) VALUES(1,3);
+INSERT INTO lc(a,b) VALUES(1,0);
+INSERT INTO lc(a,b) VALUES(2,1);
+INSERT INTO lc(a,b) VALUES(2,2);
+INSERT INTO lc(a,b) VALUES(2,3);
+INSERT INTO lc(a,b) VALUES(3,0);
+INSERT INTO lc(a,b) VALUES(3,1);
+INSERT INTO lc(a,b) VALUES(3,2);
+INSERT INTO lc(a,b) VALUES(3,3);
 ```
 ![Explain List Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_list.jpg "Explain List Partitions")   
 ![Hasil List Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/list_columns.jpg "Hasil List Partitions")   
@@ -97,6 +114,27 @@ CREATE TABLE serverlogs (
 )
 PARTITION BY HASH (server_id)
 PARTITIONS 10;
+
+INSERT INTO serverlogs(server_id) VALUES(1);
+INSERT INTO serverlogs(server_id) VALUES(2);
+INSERT INTO serverlogs(server_id) VALUES(3);
+INSERT INTO serverlogs(server_id) VALUES(4);
+INSERT INTO serverlogs(server_id) VALUES(5);
+INSERT INTO serverlogs(server_id) VALUES(6);
+INSERT INTO serverlogs(server_id) VALUES(7);
+INSERT INTO serverlogs(server_id) VALUES(8);
+INSERT INTO serverlogs(server_id) VALUES(9);
+INSERT INTO serverlogs(server_id) VALUES(10);
+INSERT INTO serverlogs(server_id) VALUES(11);
+INSERT INTO serverlogs(server_id) VALUES(12);
+INSERT INTO serverlogs(server_id) VALUES(13);
+INSERT INTO serverlogs(server_id) VALUES(14);
+INSERT INTO serverlogs(server_id) VALUES(15);
+INSERT INTO serverlogs(server_id) VALUES(16);
+INSERT INTO serverlogs(server_id) VALUES(17);
+INSERT INTO serverlogs(server_id) VALUES(18);
+INSERT INTO serverlogs(server_id) VALUES(19);
+INSERT INTO serverlogs(server_id) VALUES(20);
 ```
 ![Explain Hash Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_hash.jpg "Explain Hash Partitions")   
 ![Hasil Hash Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/hasil_hash.jpg "Hasil Hash Partitions")   
@@ -104,7 +142,7 @@ PARTITIONS 10;
 #### 2.4 `KEY` Partitioning
 Ini sangat mirip dengan partisi `HASH`, tetapi fungsi hashing disediakan oleh MySQL. Partisi `KEY` dapat menentukan nol atau banyak kolom, yang dapat berisi nilai-nilai non-integer. Hasil integer akan dikembalikan terlepas dari tipe data kolom. Contoh berikut akan menjelaskan hal ini :
 ```sql
-CREATE TABLE serverlogs5 (
+CREATE TABLE serverlogs2 (
     serverid INT, 
     logdata BLOB,
     created DATETIME,
@@ -112,13 +150,43 @@ CREATE TABLE serverlogs5 (
 )
 PARTITION BY KEY(serverid, label, created)
 PARTITIONS 10;
+
+insert into serverlogs2 (serverid, created, label) values (1, '2019-01-03', 'Nissan');
+insert into serverlogs2 (serverid, created, label) values (2, '2019-01-29', 'Toyota');
+insert into serverlogs2 (serverid, created, label) values (3, '2018-05-15', 'Subaru');
+insert into serverlogs2 (serverid, created, label) values (4, '2018-11-07', 'Ford');
+insert into serverlogs2 (serverid, created, label) values (5, '2018-05-16', 'Nissan');
+insert into serverlogs2 (serverid, created, label) values (6, '2018-04-21', 'Volvo');
+insert into serverlogs2 (serverid, created, label) values (7, '2018-10-25', 'Hyundai');
+insert into serverlogs2 (serverid, created, label) values (8, '2019-02-01', 'Jaguar');
+insert into serverlogs2 (serverid, created, label) values (9, '2019-02-19', 'Ford');
+insert into serverlogs2 (serverid, created, label) values (10, '2018-11-21', 'GMC');
+insert into serverlogs2 (serverid, created, label) values (11, '2018-07-05', 'Suzuki');
+insert into serverlogs2 (serverid, created, label) values (12, '2019-01-17', 'Infiniti');
+insert into serverlogs2 (serverid, created, label) values (13, '2019-03-18', 'Land Rover');
+insert into serverlogs2 (serverid, created, label) values (14, '2018-04-01', 'GMC');
+insert into serverlogs2 (serverid, created, label) values (15, '2018-07-12', 'GMC');
+insert into serverlogs2 (serverid, created, label) values (16, '2018-05-15', 'Volvo');
+insert into serverlogs2 (serverid, created, label) values (17, '2018-06-20', 'Mitsubishi');
+insert into serverlogs2 (serverid, created, label) values (18, '2018-04-18', 'Lexus');
+insert into serverlogs2 (serverid, created, label) values (19, '2018-08-12', 'Mitsubishi');
+insert into serverlogs2 (serverid, created, label) values (20, '2018-09-30', 'RollsRoyce');
+insert into serverlogs2 (serverid, created, label) values (21, '2018-11-11', 'BMW');
+insert into serverlogs2 (serverid, created, label) values (22, '2018-08-12', 'Nissan');
+insert into serverlogs2 (serverid, created, label) values (23, '2018-06-16', 'Nissan');
+insert into serverlogs2 (serverid, created, label) values (24, '2018-11-04', 'Mercedes');
+insert into serverlogs2 (serverid, created, label) values (25, '2018-08-02', 'Lincoln');
+insert into serverlogs2 (serverid, created, label) values (26, '2018-05-31', 'Volvo');
+insert into serverlogs2 (serverid, created, label) values (27, '2018-04-07', 'Chrysler');
+insert into serverlogs2 (serverid, created, label) values (28, '2018-10-29', 'BMW');
+insert into serverlogs2 (serverid, created, label) values (29, '2018-11-09', 'Mercedes');
 ```
 ![Explain Key Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_key.jpg "Explain Key Partitions")   
 ![Query Select Key Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/q_select_key.jpg "Query Select Key Partitions")   
 ![Hasil Key Partitions](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/hasil_key.jpg "Hasil Key Partitions")   
 
 ### 3. Testing "A Typical Use Case: Time Series Data"
-
+Untuk dataset bisa didapatkan [disini](https://drive.google.com/file/d/0B2Ksz9hP3LtXRUppZHdhT1pBaWM/view "Sample data link").
 #### 3.1 Explain Partition
 1. Tabel Measures   
 ![Explain Tabel Measures](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Implementasi%20Partisi/gambar/explain_measures.jpg "Explain Tabel Measures")   
