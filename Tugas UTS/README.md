@@ -41,7 +41,7 @@ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-availab
 ```bash
 sudo nano /etc/apache2/sites-available/wordpress.conf
 ```
-gambar1   
+![Ganti DocumentRoot dan ServerName](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar1.jpg "Ganti DocumentRoot dan ServerName")   
 
 3. Mengaktifkan configurasi wordpress
 ```bash
@@ -53,20 +53,20 @@ sudo systemctl reload apache2
 ```
 #### 5. Instalasi wordpress via browser
 Jika konfigurasi web server sudah berhasil, kita bisa membuka wordpress yang sudah konfigurasi melalui browser menggunakan ip dari web server (192.168.100.21). Akan muncul tampilan seperti ini :   
-gambar2   
+![Tampilan awal wordpress](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar2.jpg "Tampilan awal wordpress")   
 Tinggal ikuti saja langkah-langkah instalasi yang ditentukan. Jika sudah selesai maka akan muncul tampilan login, lalu tinggal login sesuai akun yang sudah dibuat tadi.   
-gambar3   
+![Tampilan login wordpress](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar3.jpg "Tampilan login wordpress")   
 Schema dari wordpress terbuat otomatis pada `service1` dan `service2`   
-gambar4   
+![Schema wordpress](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar4.jpg "Schema wordpress")   
 ### 3. Testing Fail Over
 #### 1. Mematikan salah satu service node (service1)
 ```bash
 sudo systemctl stop mysql
 ```
 #### 2. Mengecek service1 sudah mati
-gambar5
+![service1 mati](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar5.jpg "service1 mati")
 #### 3. Membuat postingan baru dari wordpres (insert data)
-gambar6   
+![insert data](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar6.jpg "insert data")   
 
-Ternyata ketika salah satu service node mati, wordpress masih bisa berjalan dengan lancar
+Ternyata ketika salah satu service node mati, wordpress masih bisa berjalan dengan lancar.
 ### 4. Pengukuran Response Time menggunakan JMeter
