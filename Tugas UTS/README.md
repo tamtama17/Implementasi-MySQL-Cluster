@@ -56,3 +56,17 @@ Jika konfigurasi web server sudah berhasil, kita bisa membuka wordpress yang sud
 gambar2   
 Tinggal ikuti saja langkah-langkah instalasi yang ditentukan. Jika sudah selesai maka akan muncul tampilan login, lalu tinggal login sesuai akun yang sudah dibuat tadi.   
 gambar3   
+Schema dari wordpress terbuat otomatis pada `service1` dan `service2`   
+gambar4   
+### 3. Testing Fail Over
+#### 1. Mematikan salah satu service node (service1)
+```bash
+sudo systemctl stop mysql
+```
+#### 2. Mengecek service1 sudah mati
+gambar5
+#### 3. Membuat postingan baru dari wordpres (insert data)
+gambar6   
+
+Ternyata ketika salah satu service node mati, wordpress masih bisa berjalan dengan lancar
+### 4. Pengukuran Response Time menggunakan JMeter
