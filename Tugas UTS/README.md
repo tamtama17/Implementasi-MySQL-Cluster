@@ -11,7 +11,7 @@ id | Hostname | IP Adrress | Deskripsi
 4 | data1 | 192.168.100.4 | Sebagai data node
 11 | service1 | 192.168.100.11 | Sebagai service node (API)
 12 | service1 | 192.168.100.12 | Sebagai service node (API)
-- | proxy | 192.168.100.21 | Sebagai proxySQL (Load Balancer) dan web server wordpress
+|-| proxy | 192.168.100.21 | Sebagai proxySQL (Load Balancer) dan web server wordpress
 
 ### 2. Instalasi Wordpress
 #### 1. Membuat database baru bernama `uts` dan berikan akses terhadap user `pguser`
