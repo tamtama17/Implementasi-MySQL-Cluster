@@ -88,3 +88,8 @@ Ternyata ketika salah satu service node mati, wordpress masih bisa berjalan deng
 ![tambah listener](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar14.jpg "tambah listener")   
 #### 3. Hasil JMeter
 ![hasil JMeter](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar15.jpg "hasil JMeter")   
+
+### 5. Referensi
+- http://blog.hendri.web.id/performance-test-sederhana-dengan-jmeter/
+- https://linuxconfig.org/how-to-install-wordpress-on-ubuntu-18-04-bionic-beaver-linux
+- https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
