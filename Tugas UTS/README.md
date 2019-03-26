@@ -70,3 +70,21 @@ sudo systemctl stop mysql
 
 Ternyata ketika salah satu service node mati, wordpress masih bisa berjalan dengan lancar.
 ### 4. Pengukuran Response Time menggunakan JMeter
+#### 1. Instalasi JMeter
+1. Download ([link](https://jmeter.apache.org/download_jmeter.cgi)) dan extract file
+2. Jalankan Jmeter dengan men-double klik `jmeter.bat` pada folder bin
+![run JMeter](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar7.jpg "run JMeter")   
+#### 2. Konfigurasi JMeter
+1. Menambahkan Thread Group (User)
+![tambah thread](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar8.jpg "tambah thread")   
+![setup thread](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar9.jpg "setup thread")   
+2. Menambahkan Config Element
+![tambah config element](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar10.jpg "tambah config element")   
+![setup request default](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar11.jpg "setup request default")   
+3. Menambahkan Sampler
+![tambah sampler](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar12.jpg "tambah sampler")   
+![setup request](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar13.jpg "setup request")   
+4. Menambahkan Listener
+![tambah listener](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar14.jpg "tambah listener")   
+#### 3. Hasil JMeter
+![hasil JMeter](https://github.com/tamtama17/Implementasi-MySQL-Cluster/blob/master/Tugas%20UTS/gambar/gambar15.jpg "hasil JMeter")   
